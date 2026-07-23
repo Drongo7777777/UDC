@@ -527,9 +527,10 @@
                     </div>
 
                     <div class="product-links">
-                        ${product.asin ? `<a href="https://www.amazon.com/dp/${product.asin.split(',')[0].trim()}" target="_blank" class="buy-btn amazon">🛒 Amazon</a>` : '<a href="javascript:void(0)" class="buy-btn amazon" style="opacity:0.5; cursor:not-allowed;">🛒 Amazon (N/A)</a>'}
+                        <a href="https://www.amazon.com/s?k=${product.asin ? product.asin.split(',')[0].trim() : encodeURIComponent(product.oem_replacement || product.sku)}" target="_blank" class="buy-btn amazon">
+                            🛒 Amazon
                         </a>
-                        <a href="https://www.walmart.com/search?q=${encodeURIComponent(product.model)}" target="_blank" class="buy-btn walmart">
+                        <a href="https://www.walmart.com/search?q=${encodeURIComponent(product.sku)}" target="_blank" class="buy-btn walmart">
                             🛒 Walmart
                         </a>
                     </div>
